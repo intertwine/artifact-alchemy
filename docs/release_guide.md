@@ -30,7 +30,9 @@ lipo -info target/universal-apple-darwin/release/aalc
 # (Should return something like "Architectures in the fat file: target/universal-apple-darwin/release/aalc are: x86_64 arm64")
 
 # Package the binary
-zip releases/aalc-macos-universal.zip ./target/universal-apple-darwin/release/aalc 
+cd target/universal-apple-darwin/release
+zip aalc-macos-universal.zip ./aalc
+mv aalc-macos-universal.zip ../../../releases/download/v0.1.x/
 ```
 
 ## Windows
@@ -44,14 +46,16 @@ rustup target add x86_64-pc-windows-gnu
 
 cargo build --release --target x86_64-pc-windows-gnu
 
-zip releases/aalc-windows.zip ./target/x86_64-pc-windows-gnu/release/aalc.exe
+cd target/x86_64-pc-windows-gnu/release
+zip aalc-windows.zip ./aalc.exe
+mv aalc-windows.zip ../../../releases/download/v0.1.x/
 ```
 
 ## Linux
 
 ```bash
 # (Optional - when building from MacOS)
-docker run -it --platform linux/amd64 -v $(pwd)/:alchemy rust:latest
+docker run -it --platform linux/amd64 -v $(pwd)/:/alchemy rust:latest
 > cd alchemy
 > cargo build --release --target x86_64-unknown-linux-gnu
 > exit
@@ -61,5 +65,7 @@ docker run -it --platform linux/amd64 -v $(pwd)/:alchemy rust:latest
 # cargo build --release --target x86_64-unknown-linux-gnu
 
 # Package the binary
-tar -czvf releases/aalc-linux.tar.gz ./target/x86_64-unknown-linux-gnu/release/aalc
+cd target/x86_64-unknown-linux-gnu/release
+tar -czvf aalc-linux.tar.gz ./aalc
+mv aalc-linux.tar.gz ../../../releases/download/v0.1.x/
 ```
