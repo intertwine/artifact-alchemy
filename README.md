@@ -9,24 +9,32 @@ See the [User Guide](docs/user_guide.md) for installation instructions.
 ## Prompting Claude
 
 In order to use ArtifactAlchemy, you must first prompt Claude to properly combine multiple
-artifacts into a single artifact that you can copy and paste into a local text file for processing.
+artifacts into a set of consolidated artifacts that you can copy and paste into a local text file for processing.
 
 The following prompt works well on Claude 3.5 Sonnet:
 
 ````text
-Claude, I need you to package all the artifacts you've created in this conversation into a single markdown file
-that can be processed by a text processing tool. Please follow these instructions:
+Claude, I need you to package the final versions of the artifacts you've created in this conversation
+into a series of consolidated artifacts in markdown format that can be later processed by a text processing tool.
 
-1. Combine all artifacts into a single markdown document.
-2. For each artifact, create a section with front matter and content.
-3. Use "---" to separate the front matter from the content and to separate different artifacts.
-4. In the front matter, include at least the "filename" field. You can add other metadata fields if relevant.
-5. Ensure that the content of each artifact is preserved exactly as it was created.
-6. Do not include any explanatory text or comments outside of the artifact sections.
+Please follow these instructions:
 
-Here's the structure to follow for each artifact:
+1. Create one consolidated markdown formatted artifact at a time, staying within your output limit.
+2. Number each consolidated artifact sequentially (e.g., "Consolidated Artifacts 1", "Consolidated Artifacts 2", etc.).
+3. For each individual artifact within a consolidated artifact, create a section with front matter and content.
+4. Use "---" to separate the front matter from the content and to separate different artifacts.
+5. In the front matter, include at least the "filename" field. Add other metadata fields if relevant.
+6. Ensure that the content of each artifact is preserved exactly as it was created.
+7. Do not split individual artifacts across multiple consolidated artifacts.
+8. At the start of each consolidated artifact (before the first artifact), include a header indicating which consolidated artifact it is.
+9. At the end of each consolidated artifact, indicate if there are more artifacts to follow.
 
-```markdown
+Here's the structure to follow:
+
+```
+&lt;antArtifact identifier="consolidated-artifacts-X" type="text/markdown" title="Consolidated Artifacts X"&gt;
+# Consolidated Artifacts X
+
 ---
 filename: path/to/filename.ext
 language: language_name
@@ -35,11 +43,31 @@ language: language_name
 Content of the artifact goes here,
 preserving all formatting, line breaks,
 and exact content.
-
 ---
+filename: path/to/another_file.ext
+language: another_language
+---
+Content of another artifact...
+--- END OF CONSOLIDATED ARTIFACTS X ---
+(More artifacts to follow / This is the final part)
+&lt;/antArtifact&gt;
 ```
 
-Please package all artifacts from our conversation using this format. After packaging, provide the entire markdown content in a single code block, without any additional commentary.
+After creating each consolidated artifact:
+
+1. Ask the user if they want you to continue with the next consolidated artifact.
+2. If there are no more artifacts to package, inform the user that all artifacts have been processed.
+
+Begin with creating Consolidated Artifacts 1. After you've reached a reasonable length (to avoid hitting your output limit), stop and ask to continue.
+
+After all artifacts have been processed, provide this final instruction:
+"All artifacts have been packaged. To use these with ArtifactAlchemy:
+1. Save each consolidated artifact to a separate file (e.g., 'artifacts_1.md', 'artifacts_2.md', etc.)
+2. Run ArtifactAlchemy on each file, pointing to the same output directory:
+aalc artifacts_1.md output_folder
+aalc artifacts_2.md output_folder
+(Repeat for all artifact files)
+This will extract all artifacts to the specified output folder, maintaining their original structure."
 ````
 
 ## Usage
