@@ -1,0 +1,17 @@
+[package]
+name = "artifact-alchemy"
+version = "0.1.0"
+edition = "2021"
+authors = ["Bryan Young <bryan@intertwinesys.com>"]
+description = "A tool for transmuting Claude's artifacts into individual files"
+license = "MIT"
+
+[dependencies]
+current_platform = "0.2.0"
+
+[dev-dependencies]
+tempfile = "3.3.0"
+
+[[bin]]
+name = "aalc"
+path = "src/main.rs"

@@ -1,0 +1,28 @@
+```markdown
+---
+filename: test1.py
+language: python
+---
+def hello_world():
+    print("Hello, World!")
+
+---
+filename: docs/README.md
+language: markdown
+---
+# Project Documentation
+
+This is a sample README file.
+
+---
+filename: src/main.rs
+language: rust
+---
+fn main() {
+    println!("Hello from Rust!");
+}
+```
+
+To use this packaged file with ArtifactAlchemy:
+1. Save the content above to a file (e.g., 'artifacts.md')
+2. Run ArtifactAlchemy: aalc artifacts.md output_folder
