@@ -63,26 +63,28 @@ Begin with creating Consolidated Artifacts 1. After you've reached a reasonable 
 After all artifacts have been processed, provide this final instruction:
 "All artifacts have been packaged. To use these with ArtifactAlchemy:
 1. Save each consolidated artifact to a separate file (e.g., 'artifacts_1.md', 'artifacts_2.md', etc.)
-2. Run ArtifactAlchemy on each file, pointing to the same output directory:
-aalc artifacts_1.md output_folder
-aalc artifacts_2.md output_folder
-(Repeat for all artifact files)
+2. Run ArtifactAlchemy on all the consolidated artifact files, pointing to the same output directory:
+
+```sh
+aalc artifacts_1.md artifacts_2.md artifacts_n.md output_folder
+```
+
 This will extract all artifacts to the specified output folder, maintaining their original structure."
 ````
 
 ## Usage
 
 ```bash
-aalc <input_file> <output_directory>
+aalc <input_file_1> <input_file_2> <input_file_n> <output_directory>
 ```
 
-- `<input_file>`: Path to the concatenated markdown file containing artifacts
+- `<input_file_1>`, `<input_file_2>`, `<input_file_n>`: Paths to the concatenated markdown files containing artifacts
 - `<output_directory>`: Directory where individual files will be created
 
 ## Example
 
 ```bash
-aalc artifacts.md output_folder
+aalc artifacts_1.md artifacts_2.md artifacts_n.md output_folder
 ```
 
 ## Features

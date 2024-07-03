@@ -24,7 +24,8 @@ Content of file 2
     let (dir, input_path) = create_test_input(content);
     let output_dir = dir.path().join("output");
 
-    let files_created = process_artifacts(&input_path, output_dir.to_str().unwrap()).unwrap();
+    let input_files = vec![input_path.as_str()];
+    let files_created = process_artifacts(&input_files, output_dir.to_str().unwrap()).unwrap();
 
     assert_eq!(files_created, 2);
     let file1 = fs::read_to_string(output_dir.join("file1.txt")).unwrap();
@@ -38,7 +39,8 @@ fn test_empty_input() {
     let (dir, input_path) = create_test_input("");
     let output_dir = dir.path().join("output");
 
-    let files_created = process_artifacts(&input_path, output_dir.to_str().unwrap()).unwrap();
+    let input_files = vec![input_path.as_str()];
+    let files_created = process_artifacts(&input_files, output_dir.to_str().unwrap()).unwrap();
 
     assert_eq!(files_created, 0);
     assert!(fs::read_dir(&output_dir).is_err() || output_dir.read_dir().unwrap().next().is_none());

@@ -20,19 +20,19 @@ fn print_usage() {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    if args.len() != 3 {
+    if args.len() < 3 {
         print_version();
         print_usage();
         process::exit(1);
     }
 
-    let input_file = &args[1];
-    let output_dir = &args[2];
+    let input_files: Vec<&str> = args[1..args.len() - 1].iter().map(|s| s.as_str()).collect();
+    let output_dir = &args[args.len() - 1];
 
     println!("🧪 ArtifactAlchemy v{} 🧪", VERSION);
-    println!("Transmuting artifacts from {} into {}", input_file, output_dir);
+    println!("Transmuting artifacts from {:?} into {}", input_files, output_dir);
 
-    match process_artifacts(input_file, output_dir) {
+    match process_artifacts(&input_files, output_dir) {
         Ok(files_created) => {
             println!("✨ Transmutation complete! {} artifacts created.", files_created);
         },
