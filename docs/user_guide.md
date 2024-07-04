@@ -12,7 +12,7 @@ brew install aalc
 
 ## MacOS Installation (Binary Download)
 
-1. Download the `aalc-macos.zip` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/releases/download/v0.1.0/aalc-macos.zip).
+1. Download the `aalc-macos.zip` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/raw/main/releases/download/v0.1.0/aalc-macos.zip).
 2. Unzip the file:
 
    ```sh
@@ -33,7 +33,7 @@ brew install aalc
 
 ## Windows Installation (Binary Download)
 
-1. Download the `aalc-windows.zip` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/releases/download/v0.1.0/aalc-windows.zip).
+1. Download the `aalc-windows.zip` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/raw/main/releases/download/v0.1.0/aalc-windows.zip).
 2. Unzip the file using File Explorer or PowerShell:
 
    ```powershell
@@ -53,7 +53,7 @@ brew install aalc
 
 ## Linux Installation (Binary Download)
 
-1. Download the `aalc-linux.tar.gz` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/releases/download/v0.1.0/aalc-linux.tar.gz).
+1. Download the `aalc-linux.tar.gz` file from the [releases directory](https://github.com/intertwine/artifact-alchemy/raw/main/releases/download/v0.1.0/aalc-linux.tar.gz).
 2. Extract the file:
 
    ```sh
