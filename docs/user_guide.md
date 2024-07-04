@@ -6,7 +6,7 @@ concatenated Claude Artifacts into individual files.
 ## MacOS Install (Homebrew)
 
 ```bash
-brew tap intertwine/artifactalchemy
+brew tap intertwine/artifact-alchemy
 brew install aalc
 ```
 
