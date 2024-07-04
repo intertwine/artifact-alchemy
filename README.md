@@ -1,10 +1,22 @@
+![Static Badge](https://img.shields.io/badge/Code_%26_Context-Exclusive-2980B9?labelColor=E67E22)
+![Static Badge](https://img.shields.io/badge/AI_Drop-Week_2-2C3E50?labelColor=1ABC9C)
+
 # ArtifactAlchemy
 
 ArtifactAlchemy (aalc) is a command-line tool for processing and splitting concatenated Claude Artifacts into individual files.
 
+This project is part of [Code & Context](https://codeandcontext.substack.com)'s [AI Drop of the Week](https://codeandcontext.substack.com/s/ai-drop-of-the-week).
+
 ## Installation
 
-See the [User Guide](docs/user_guide.md) for installation instructions.
+ArtifactAlchemy is available on macOS, Windows, and Linux. See the [User Guide](docs/user_guide.md) for installation instructions.
+
+### Simple MacOS Homebrew Installation
+
+```bash
+brew tap intertwine/artifact-alchemy
+brew install aalc
+```
 
 ## Prompting Claude
 
